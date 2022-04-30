@@ -4,6 +4,7 @@ import com.luizaugusto.projeto_nome.dtos.InformationDTO;
 import com.luizaugusto.projeto_nome.dtos.InformationGetDTO;
 import com.luizaugusto.projeto_nome.entities.Information;
 import com.luizaugusto.projeto_nome.requests.InformationPostRequestBody;
+import com.luizaugusto.projeto_nome.requests.InformationPutRequestBody;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -17,4 +18,6 @@ public abstract class InformationMapper {
     public abstract InformationGetDTO toInformationGetDTO(Information information);
 
     public abstract Information toInformation(InformationPostRequestBody informationPostRequestBody);
+
+    public abstract Information toInformation(InformationPutRequestBody informationPutRequestBody);
 }

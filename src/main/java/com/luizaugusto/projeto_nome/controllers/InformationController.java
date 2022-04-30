@@ -4,6 +4,7 @@ import com.luizaugusto.projeto_nome.dtos.InformationDTO;
 import com.luizaugusto.projeto_nome.dtos.InformationGetDTO;
 import com.luizaugusto.projeto_nome.mapper.InformationMapper;
 import com.luizaugusto.projeto_nome.requests.InformationPostRequestBody;
+import com.luizaugusto.projeto_nome.requests.InformationPutRequestBody;
 import com.luizaugusto.projeto_nome.services.InformationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class InformationController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<InformationGetDTO> findById(@PathVariable Long id)
     {
-        var info = informationService.findById(id);
+        var info = informationService.findByIdOrElseThrowResponseStatusException(id);
         var infoDTO = InformationMapper.INSTANCE.toInformationGetDTO(info);
         return ResponseEntity.ok().body(infoDTO);
     }
@@ -57,5 +58,15 @@ public class InformationController {
                 buildAndExpand(infoDTO.getId()).toUri();
 
         return ResponseEntity.created(uri).body(null);
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<InformationDTO> updateInformation
+            (@PathVariable Long id, @RequestBody InformationPutRequestBody informationPutRequestBody)
+    {
+        var info = InformationMapper.INSTANCE.toInformation(informationPutRequestBody);
+        var updatedInfo = informationService.update(id, info);
+        var infoDTO = InformationMapper.INSTANCE.toInformationDTO(updatedInfo);
+        return ResponseEntity.ok().body(infoDTO);
     }
 }
