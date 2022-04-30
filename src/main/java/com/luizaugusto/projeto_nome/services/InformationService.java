@@ -29,4 +29,9 @@ public class InformationService {
         return info;
     }
 
+    public Information create(Information information)
+    {
+        return informationRepository.save(information);
+    }
+
 }

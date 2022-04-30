@@ -1,11 +1,11 @@
-package com.luizaugusto.projeto_nome.dtos;
+package com.luizaugusto.projeto_nome.requests;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class InformationDTO {
+public class InformationRequest {
 
     private Long id;
     private String name;
