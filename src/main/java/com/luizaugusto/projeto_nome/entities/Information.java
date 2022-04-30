@@ -18,6 +18,7 @@ public class Information {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     public Long id;
     @EqualsAndHashCode.Exclude
     public String name;

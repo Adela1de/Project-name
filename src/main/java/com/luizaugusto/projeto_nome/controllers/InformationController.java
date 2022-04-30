@@ -1,7 +1,7 @@
 package com.luizaugusto.projeto_nome.controllers;
 
-import com.luizaugusto.projeto_nome.dtos.InformationDTO;
-import com.luizaugusto.projeto_nome.dtos.InformationGetDTO;
+import com.luizaugusto.projeto_nome.dtos.informationDTOS.InformationDTO;
+import com.luizaugusto.projeto_nome.dtos.informationDTOS.InformationGetDTO;
 import com.luizaugusto.projeto_nome.mapper.InformationMapper;
 import com.luizaugusto.projeto_nome.requests.informationrequests.InformationPostRequestBody;
 import com.luizaugusto.projeto_nome.requests.informationrequests.InformationPutRequestBody;

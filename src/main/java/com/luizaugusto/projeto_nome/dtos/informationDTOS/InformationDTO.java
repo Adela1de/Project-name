@@ -1,4 +1,4 @@
-package com.luizaugusto.projeto_nome.dtos;
+package com.luizaugusto.projeto_nome.dtos.informationDTOS;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.luizaugusto.projeto_nome.entities.User;
