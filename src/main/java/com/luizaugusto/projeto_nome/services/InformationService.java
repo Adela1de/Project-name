@@ -43,4 +43,10 @@ public class InformationService {
         return informationRepository.save(information);
     }
 
+    public void deleteById(Long id)
+    {
+        findByIdOrElseThrowResponseStatusException(id);
+        informationRepository.deleteById(id);
+    }
+
 }

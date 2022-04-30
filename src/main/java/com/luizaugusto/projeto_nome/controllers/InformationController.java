@@ -23,13 +23,13 @@ public class InformationController {
     private final InformationService informationService;
 
     @GetMapping
-    public ResponseEntity<List<InformationGetDTO>> findAll()
+    public ResponseEntity<List<InformationDTO>> findAll()
     {
         var info = informationService.findAll();
         var infoDTO =
                 info.
                 stream().
-                map(InformationMapper.INSTANCE::toInformationGetDTO).
+                map(InformationMapper.INSTANCE::toInformationDTO).
                 collect(Collectors.toList());
 
         return ResponseEntity.ok().body(infoDTO);
@@ -68,5 +68,12 @@ public class InformationController {
         var updatedInfo = informationService.update(id, info);
         var infoDTO = InformationMapper.INSTANCE.toInformationDTO(updatedInfo);
         return ResponseEntity.ok().body(infoDTO);
+    }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity<Void> deleteInformation(@PathVariable Long id)
+    {
+        informationService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }
