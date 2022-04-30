@@ -1,4 +1,4 @@
-package com.luizaugusto.projeto_nome.requests;
+package com.luizaugusto.projeto_nome.requests.informationrequests;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

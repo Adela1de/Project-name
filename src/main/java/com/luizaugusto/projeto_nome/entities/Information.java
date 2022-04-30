@@ -1,22 +1,38 @@
 package com.luizaugusto.projeto_nome.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode
 @Table(name = "tb_information")
 @NoArgsConstructor
-@AllArgsConstructor
 public class Information {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
-    public String Name;
+    @EqualsAndHashCode.Exclude
+    public String name;
+    @EqualsAndHashCode.Exclude
     public Integer age;
+    @EqualsAndHashCode.Exclude
+    @OneToOne(mappedBy = "information")
+    @JsonIgnore
+    public User user;
+
+    public Information(Long id, String name, Integer age)
+    {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+    }
 
 }
