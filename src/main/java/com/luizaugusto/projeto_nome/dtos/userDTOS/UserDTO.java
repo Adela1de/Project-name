@@ -9,6 +9,8 @@ import lombok.Setter;
 public class UserDTO {
 
     private Long id;
+    private String email;
+    private String password;
     private boolean isPremium;
     private Information information;
 }

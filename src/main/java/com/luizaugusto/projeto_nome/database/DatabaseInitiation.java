@@ -19,16 +19,16 @@ public class DatabaseInitiation {
 
     public void dbInit()
     {
-        var user1 = new User(null, false);
-        var user2 = new User(null, true);
-        var user3 = new User(null, false);
-        var user4 = new User(null, true);
-        var user5 = new User(null, false);
-        var user6 = new User(null, true);
-        var user7 = new User(null, false);
-        var user8 = new User(null, true);
-        var user9 = new User(null, false);
-        var user10 = new User(null, true);
+        var user1 = new User(null,"Rog@Rog.com","6666", false);
+        var user2 = new User(null,"Nat@Nat.com","3104", true);
+        var user3 = new User(null,"joao@joao.com","coxinha123", false);
+        var user4 = new User(null,"luiz@luiz.com","@gbhr79AR1", true);
+        var user5 = new User(null,"Rob@Rob.com","@gbhr79AR1", false);
+        var user6 = new User(null,"Forger@Loid.com","6510", true);
+        var user7 = new User(null,"Anya@Forger.com","cringelord123", false);
+        var user8 = new User(null,"teste@teste.com","tester", true);
+        var user9 = new User(null,"testee@testee.com","tester", false);
+        var user10 = new User(null,"testeee@testeeee.com","testeeer", true);
 
         userRepository.saveAll(Arrays.asList(user1, user2, user3, user4, user5, user6, user7, user8, user9, user10));
 

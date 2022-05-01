@@ -1,14 +1,12 @@
 package com.luizaugusto.projeto_nome.controllers;
 
 import com.luizaugusto.projeto_nome.dtos.userDTOS.UserDTO;
+import com.luizaugusto.projeto_nome.dtos.userDTOS.UserGetDTO;
 import com.luizaugusto.projeto_nome.mapper.UserMapper;
 import com.luizaugusto.projeto_nome.services.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.stream.Collectors;
 
@@ -28,6 +26,16 @@ public class UserController {
 
         return ResponseEntity.ok().body(usersDTO);
     }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<UserGetDTO> findById(@PathVariable Long id)
+    {
+        var user = userService.findByIdOrElseThrowResponseStatusException(id);
+        var userDTO = UserMapper.INSTANCE.toUserGetDTO(user);
+        return ResponseEntity.ok().body(userDTO);
+    }
+
+
 
 }
 
